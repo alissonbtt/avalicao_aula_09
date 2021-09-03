@@ -1,34 +1,31 @@
 
-function menu(prato, tempoInserido){
-    let tempoPadrao;
+function alimento(tempoPadrao, tempoInserido){
+    return [tempoPadrao, tempoInserido]
+}
+
+
+function menu(prato, tempoInserido){   
 
     switch(prato){
         case 'pipoca':
-            tempoPadrao = 10;  
-            resposta(tempoPadrao, tempoInserido);   
+            resposta(alimento(10, tempoInserido))           
         break;   
         case 'macarrao':
-            tempoPadrao = 8;  
-            resposta(tempoPadrao, tempoInserido);  
+        case 'brigadeiro':
+            resposta(alimento(8, tempoInserido))
         break;       
         case 'carne':
-            tempoPadrao = 15;
-            resposta(tempoPadrao, tempoInserido);  
+            resposta(alimento(15, tempoInserido))
         break;         
         case 'feijao':
-            tempoPadrao = 12;
-            resposta(tempoPadrao, tempoInserido);  
-        break;         
-        case 'brigadeiro':
-            tempoPadrao = 8;
-            resposta(tempoPadrao, tempoInserido);  
+            resposta(alimento(12, tempoInserido)) 
         break; 
         default:
-            console.log("Prato inesxistente, Favor, selecione uma opção válida")
+            console.log("Prato inexistente, Favor, selecione uma opção válida")
     }
 }
-
-function resposta(tempoPadrao, tempoInserido){
+    
+function resposta([tempoPadrao, tempoInserido]){
     if(tempoInserido < tempoPadrao){
         console.log("tempo insuficiente");
     } else if(tempoInserido >= tempoPadrao * 2 && tempoInserido < tempoPadrao * 3 ){
@@ -41,4 +38,4 @@ function resposta(tempoPadrao, tempoInserido){
 }
 
 
-menu('macarrao', 30);
+menu('carne', 45);
